@@ -12,10 +12,10 @@
 
 安装
 ```
-bash <(wget -qO- https://github.com/Aniverse/lotServer/raw/master/lotServer.sh) i
+bash <(wget -qO- https://github.com/YuutaDoNo/lotServer/raw/master/lotServer.sh) I b
 ```
 
 卸载
 ```
-bash <(wget -qO- https://github.com/Aniverse/lotServer/raw/master/lotServer.sh) u
+bash <(wget -qO- https://github.com/YuutaDoNo/lotServer/raw/master/lotServer.sh) u
 ```
