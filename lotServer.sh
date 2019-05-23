@@ -48,7 +48,8 @@ acce_ver=$(acce_check ${KNV})
 [[ $Lic == c ]] && LicURL="https://backup.rr5rr.com/LotServer/keygen.php?ver=${acce_ver}&mac=${Mac}"
 # https://github.com/MoeClub/lotServer/compare/master...ouyangmland:master
 [[ $Lic == d ]] && LicURL="https://www.speedsvip.com/keygen.php?mac=${Mac}"
-[[ $Lic =~ (a|b|c|d) ]] && wget -O "${AcceTmp}/etc/apx.lic" "$LicURL"
+[[ $Lic == e ]] && LicURL="https://speeder.mabors.co/keygen.php?ver=${acce_ver}&mac=${Mac}"
+[[ $Lic =~ (a|b|c|d|e) ]] && wget -O "${AcceTmp}/etc/apx.lic" "$LicURL"
 
 [[ $Lic == local ]] && {
 which php > /dev/null || Uninstall "Error! No php found"
