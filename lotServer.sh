@@ -6,7 +6,7 @@
 # 2019.04.25, v4
 
 usage_guide() {
-bash <(wget --no-check-certificate -qO- https://github.com/Aniverse/lotServer/raw/master/lotServer.sh) I b
+bash <(wget --no-check-certificate -qO- https://github.com/YuutaDoNo/lotServer/raw/master/lotServer.sh) I b
 }
 
 [[ $EUID -ne 0 ]] && { echo "ERROR: This script must be run as root!" ; exit 1 ; }
@@ -82,7 +82,7 @@ function Install()
   [ -z "$Eth" ] && Uninstall "Error! Not found a valid ether. "
   Mac=$(cat /sys/class/net/${Eth}/address)
   [ -z "$Mac" ] && Uninstall "Error! Not found mac code. "
-  URLKernel='https://github.com/Aniverse/lotServer/raw/master/lotServer.log'
+  URLKernel='https://github.com/YuutaDoNo/lotServer/raw/master/lotServer.log'
   AcceData=$(wget --no-check-certificate -qO- "$URLKernel")
   AcceVer=$(echo "$AcceData" |grep "$KNA/" |grep "/x$KNB/" |grep "/$KNK/" |awk -F'/' '{print $NF}' |sort -nk 2 -t '_' |tail -n1)
   MyKernel=$(echo "$AcceData" |grep "$KNA/" |grep "/x$KNB/" |grep "/$KNK/" |grep "$AcceVer" |tail -n1)
@@ -94,9 +94,9 @@ function Install()
   AcceBin="acce-"$KNV"-["$KNA"_"$KNN"_"$KNK"]"
   mkdir -p "${AcceTmp}/bin/"
   mkdir -p "${AcceTmp}/etc/"
-  wget --no-check-certificate -qO "${AcceTmp}/bin/${AcceBin}" "https://github.com/Aniverse/lotServer/raw/master/${MyKernel}"
+  wget --no-check-certificate -qO "${AcceTmp}/bin/${AcceBin}" "https://github.com/YuutaDoNo/lotServer/raw/master/${MyKernel}"
   [ ! -f "${AcceTmp}/bin/${AcceBin}" ] && Uninstall "Download Error! Not Found ${AcceBin}. "
-  wget --no-check-certificate -qO "/tmp/lotServer.tar" "https://github.com/Aniverse/lotServer/raw/master/lotServer.tar"
+  wget --no-check-certificate -qO "/tmp/lotServer.tar" "https://github.com/YuutaDoNo/lotServer/raw/master/lotServer.tar"
   tar -xvf "/tmp/lotServer.tar" -C /tmp
   generate_lic
   sed -i "s/^accif\=.*/accif\=\"$Eth\"/" "${AcceTmp}/etc/config"
